@@ -22,14 +22,11 @@ set -x
 INSTANCE_ID=$(aws ec2 run-instances --image-id ami-0b6d9d3d33ba97d99 --instance-type t3.micro --count 1\
                 --security-group-ids sg-07fd4b2b0ffc8e550 --key-name TEST111\
 	        --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$1}]"\
-
 		--query "Instances[0].InstanceId"\
 		--output text)
 
 echo
-echo
 echo "Printing detail for: $INSTANCE_ID"
-echo
 echo
 
 #Know printing the basic info of that newly create instance...
